@@ -23,11 +23,11 @@ import { authProvider } from "./authProvider";
 import { Header } from "./components/header";
 import { ColorModeContextProvider } from "./contexts/color-mode";
 import {
-  BlogPostCreate,
-  BlogPostEdit,
-  BlogPostList,
-  BlogPostShow,
-} from "./pages/blog-posts";
+  MovieCreate,
+  MovieEdit,
+  MovieList,
+  MovieShow,
+} from "./pages/peliculas"; // Assuming these are updated components for movies
 import {
   CategoryCreate,
   CategoryEdit,
@@ -47,17 +47,17 @@ function App() {
           <AntdApp>
             <DevtoolsProvider>
               <Refine
-                dataProvider={dataProvider("https://api.fake-rest.refine.dev")}
+                dataProvider={dataProvider("https://freetestapi.com/api/v1")}
                 notificationProvider={useNotificationProvider}
                 routerProvider={routerBindings}
                 authProvider={authProvider}
                 resources={[
                   {
-                    name: "blog_posts",
-                    list: "/blog-posts",
-                    create: "/blog-posts/create",
-                    edit: "/blog-posts/edit/:id",
-                    show: "/blog-posts/show/:id",
+                    name: "movies",
+                    list: "/movies",
+                    create: "/movies/create",
+                    edit: "/movies/edit/:id",
+                    show: "/movies/show/:id",
                     meta: {
                       canDelete: true,
                     },
@@ -98,13 +98,13 @@ function App() {
                   >
                     <Route
                       index
-                      element={<NavigateToResource resource="blog_posts" />}
+                      element={<NavigateToResource resource="movies" />}
                     />
-                    <Route path="/blog-posts">
-                      <Route index element={<BlogPostList />} />
-                      <Route path="create" element={<BlogPostCreate />} />
-                      <Route path="edit/:id" element={<BlogPostEdit />} />
-                      <Route path="show/:id" element={<BlogPostShow />} />
+                    <Route path="/movies">
+                      <Route index element={<MovieList />} />
+                      <Route path="create" element={<MovieCreate />} />
+                      <Route path="edit/:id" element={<MovieEdit />} />
+                      <Route path="show/:id" element={<MovieShow />} />
                     </Route>
                     <Route path="/categories">
                       <Route index element={<CategoryList />} />

@@ -4,7 +4,7 @@ import { Typography } from "antd";
 
 const { Title } = Typography;
 
-export const BlogPostShow = () => {
+export const MovieShow = () => {
   const { queryResult } = useShow({});
   const { data, isLoading } = queryResult;
 
@@ -20,21 +20,21 @@ export const BlogPostShow = () => {
 
   return (
     <Show isLoading={isLoading}>
-      <Title level={5}>{"ID"}</Title>
+      <Title level={5}>ID</Title>
       <TextField value={record?.id} />
-      <Title level={5}>{"Title"}</Title>
+      <Title level={5}>Title</Title>
       <TextField value={record?.title} />
-      <Title level={5}>{"Content"}</Title>
-      <MarkdownField value={record?.content} />
-      <Title level={5}>{"Category"}</Title>
+      <Title level={5}>Content</Title>
+      <MarkdownField value={record?.plot} /> {/* Assuming 'plot' is used for content */}
+      <Title level={5}>Category</Title>
       <TextField
         value={
           categoryIsLoading ? <>Loading...</> : <>{categoryData?.data?.title}</>
         }
       />
-      <Title level={5}>{"Status"}</Title>
+      <Title level={5}>Status</Title>
       <TextField value={record?.status} />
-      <Title level={5}>{"CreatedAt"}</Title>
+      <Title level={5}>Created At</Title>
       <DateField value={record?.createdAt} />
     </Show>
   );
