@@ -1,14 +1,13 @@
 // src/index.tsx
 
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import ReactDOM from 'react-dom';
 import App from './App';
-import './index.css';
-import './styles.css';  // Importa el archivo de estilos CSS
+import './styles.css';  // Asegúrate de que los estilos se importan si es necesario
 
-const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
-root.render(
+ReactDOM.render(
     <React.StrictMode>
         <App />
-    </React.StrictMode>
+    </React.StrictMode>,
+    document.getElementById('root')
 );
